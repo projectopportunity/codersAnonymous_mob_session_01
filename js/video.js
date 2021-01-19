@@ -15,12 +15,21 @@ let totalAmount = 0;
 let frequentRenterPoints = 0;
 let receipt = `<h2>Rental Record for ${customer.name}\n</h2>`;
 
+// const calculateVideoAmount = (rental, amount, ) => {
+
+// }
+
+// loop through each rental that the customer has 
 for (let r of customer.rentals) {
-        let item = videos[r.movieID];
-        let videoAmount = 0;
+    // select the video that the customer rented
+    let item = videos[r.movieID];
+    let videoAmount = 0;
+    // if the video category is regular    
     if(item.code == 'regular'){
         videoAmount = 2;
+        // if customer has rented a video for more than 2 days
         if (r.days > 2) {
+            // add $1.50 per day after initial 2 day period
             videoAmount += (r.days - 2) * 1.5;
         }
     } else if(item.code == 'new'){
